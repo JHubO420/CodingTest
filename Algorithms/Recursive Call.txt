@@ -1,0 +1,57 @@
+자바에서 재귀 호출 예시
+
+(1) 팩토리얼 계산
+public class FactorialExample {
+    public static int factorial(int n) {
+        if (n == 0) { // 기본 조건
+            return 1;
+        }
+        return n * factorial(n - 1); // 재귀 호출
+    }
+
+    public static void main(String[] args) {
+        System.out.println("5! = " + factorial(5)); // 출력: 5! = 120
+    }
+}
+
+(2) 피보나치 수열 계산
+public class FibonacciExample {
+    public static int fibonacci(int n) {
+        if (n <= 1) { // 기본 조건
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2); // 재귀 호출
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Fibonacci(6) = " + fibonacci(6)); // 출력: 8
+    }
+}
+
+(3) 재귀를 이용한 문자열 뒤집기
+public class ReverseStringExample {
+    public static String reverse(String str) {
+        if (str.isEmpty()) { // 기본 조건
+            return str;
+        }
+        return reverse(str.substring(1)) + str.charAt(0); // 재귀 호출
+    }
+
+    public static void main(String[] args) {
+        System.out.println(reverse("hello")); // 출력: olleh
+    }
+}
+
+(4) 재귀를 이용한 이진수 변환
+public class BinaryConversionExample {
+    public static void toBinary(int n) {
+        if (n > 1) {
+            toBinary(n / 2); // 재귀 호출
+        }
+        System.out.print(n % 2);
+    }
+
+    public static void main(String[] args) {
+        toBinary(10); // 출력: 1010
+    }
+}
