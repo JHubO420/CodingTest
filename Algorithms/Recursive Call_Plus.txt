@@ -1,0 +1,23 @@
+재귀 호출의 깊이를 제한하려면 재귀 호출 횟수를 수동으로 카운트하거나, StackOverflowError 예외 처리를 이용할 수 있습니다.
+
+1. 재귀 호출 깊이를 직접 제한하는 방법
+public class RecursionLimitExample {
+    static final int LIMIT = 10_000; // 재귀 호출 한계 설정
+    static int count = 0; // 현재 재귀 호출 횟수 추적
+
+    public static void recursiveFunction() {
+        if (count >= LIMIT) {
+            throw new StackOverflowError("재귀 호출 제한에 도달했습니다!");
+        }
+        count++; // 재귀 호출 횟수 증가
+        recursiveFunction(); // 재귀 호출
+    }
+
+    public static void main(String[] args) {
+        try {
+            recursiveFunction();
+        } catch (StackOverflowError e) {
+            System.out.println("StackOverflow 발생: " + e.getMessage());
+        }
+    }
+}
