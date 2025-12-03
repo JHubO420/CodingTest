@@ -2,14 +2,14 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-        int s = arr[0];
+        int prev = arr[0];
         ArrayList<Integer> list = new ArrayList<>();
-        list.add(s);
+        list.add(prev);
 
         for (int i = 1; i < arr.length; i++) {
-            if(arr[i] != s){
+            if(arr[i] != prev){
                 list.add(arr[i]);
-                s = arr[i];
+                prev = arr[i];
             }
         }
 
